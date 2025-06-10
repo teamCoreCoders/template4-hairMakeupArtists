@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 36 30% 95%;
+    --foreground: 0 0% 12%;
+    --card: 36 30% 95%;
+    --card-foreground: 0 0% 12%;
+    --popover: 36 30% 95%;
+    --popover-foreground: 0 0% 12%;
+    --primary: 340 20% 45%;
+    --primary-foreground: 36 30% 95%;
+    --secondary: 270 10% 65%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 270 10% 65%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 18 70% 72%;
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 10% 85%;
+    --input: 270 10% 85%;
+    --ring: 340 20% 45%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 36 30% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 36 30% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 36 30% 95%;
+    --primary: 340 20% 65%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 270 10% 25%;
+    --secondary-foreground: 36 30% 95%;
+    --muted: 270 10% 25%;
+    --muted-foreground: 270 10% 65%;
+    --accent: 18 70% 52%;
+    --accent-foreground: 36 30% 95%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 10% 25%;
+    --input: 270 10% 25%;
+    --ring: 340 20% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 50px 0;
+  max-height: 200px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+  max-height: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Position scrollbar */
+body {
+  padding-right: 24px;
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-5xl md:text-7xl font-light tracking-tight leading-none;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-5xl font-light tracking-tight;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-light tracking-tight;
+}
+
+.body-lg {
+  @apply text-lg md:text-xl leading-relaxed;
+}
+
+.body-md {
+  @apply text-base md:text-lg leading-relaxed;
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Image overlay effects */
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+  opacity: 1;
+}
